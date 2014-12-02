@@ -1,0 +1,4 @@
+public/views/app/js/app-built.js
+node_modules/
+tmp/
+.DS_Store

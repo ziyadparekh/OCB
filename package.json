@@ -1,0 +1,44 @@
+{
+  "name": "z",
+  "version": "0.0.0",
+  "description": "",
+  "keywords": [],
+  "homepage": "https://github.com/ziyadparekh/z",
+  "bugs": "https://github.com/ziyadparekh/z/issues",
+  "author": {
+    "name": "Ziyad Parekh",
+    "email": "",
+    "url": "https://github.com/ziyadparekh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ziyadparekh/z.git"
+  },
+  "dependencies": {
+    "backbone-base-and-form-view": "^0.8.0",
+    "jquery": "^2.1.1",
+    "keymaster": "^1.6.2",
+    "node-event-emitter": "0.0.1",
+    "underscore": "^1.7.0"
+  },
+  "devDependencies": {
+    "glob": "^4.3.1",
+    "gulp": "^3.8.10",
+    "gulp-util": "^3.0.1",
+    "jasmine-core": "^2.1.2",
+    "karma": "^0.12.28",
+    "karma-jasmine": "^0.3.1",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "less": "^2.1.1",
+    "node-underscorify": "0.0.12",
+    "require-dir": "^0.1.0",
+    "vinyl-source-stream": "^1.0.0",
+    "watchify": "^2.1.1",
+    "webpack": "^1.4.13",
+    "webpack-compile-templates": "^0.1.3",
+    "webpack-dev-server": "^1.6.6"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  }
+}
