@@ -10,6 +10,7 @@ OCB is an opinionated Frontend developer repository meant to be the quickest way
 5. Karma and Jasmine for unit tests
 6. Express server with MYSQL
 7. SASS support (compiliation + minification)
+8. File watches
 8. Backbone Base and Form View
 
 To get started clone this repository by running
@@ -18,8 +19,11 @@ To get started clone this repository by running
 
 `cd` into the directory and run `npm install`
 
-If everything worked out ok you should be able to run `supervisor application/app.js` from the `root` and navigate your browser
-to `localhost:3010`
+If everything worked out ok you should be able to run:
+
+1. `supervisor application/app.js` from the `root`
+2. `gulp` in another tab on your terminal 
+3. then navigate your browser to `localhost:3010`
 
 STRUCTURE::
 
