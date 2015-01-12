@@ -1,5 +1,8 @@
 // Karma configuration
 // Generated on Thu Nov 27 2014 16:09:10 GMT-0500 (EST)
+var webpackConfig = require('./webpack.config.js');
+var karmaWebpack = require('karma-webpack');
+var karmaJasmine = require('karma-jasmine');
 
 module.exports = function(config) {
   config.set({
@@ -10,12 +13,12 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['browserify', 'jasmine'],
+    frameworks: ['jasmine'],
 
 
     // list of files / patterns to load in the browser
     files: [
-      'app/tests/specloader.js'
+      'src/js/tests/specloader.js'
     ],
 
 
@@ -23,12 +26,47 @@ module.exports = function(config) {
     exclude: [
     ],
 
+    webpack: {
+      cache: true,
+      devtool: webpackConfig.devtool,
+      debug: webpackConfig.debug,
+      resolve: webpackConfig.resolve,
+      //externals: webpackConfig.externals,
+      module: webpackConfig.module
+    },
+
+    webpackServer: {
+      contentBase: 'public',
+      stats: {
+        colors: true,
+        hash: false,
+        timings: true,
+        assets: false,
+        chunks: true,
+        chunkModules: false,
+        modules: false,
+        cached: false,
+        reasons: false,
+        source: false,
+        chunkOrigins: false
+      }
+    },
+
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-        'app/tests/specloader.js' : [ 'browserify' ]
+        'src/js/tests/specloader.js' : [ 'webpack' ],
+        'public/templates/*.html' : [],
+        "**/*/.html" : [],
+        "**/*.json" : []
     },
+
+    plugins : [
+      'karma-phantomjs-launcher',
+       karmaJasmine,
+       karmaWebpack
+    ],
 
 
     // test results reporter to use
