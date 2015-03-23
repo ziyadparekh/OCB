@@ -15,10 +15,19 @@
     "url": "git://github.com/ziyadparekh/z.git"
   },
   "dependencies": {
+    "babel-core": "^4.7.16",
+    "babel-loader": "^4.2.0",
+    "babel-runtime": "^4.7.16",
     "backbone-base-and-form-view": "^0.8.0",
+    "flux": "^2.0.1",
+    "istanbul": "^0.3.8",
+    "istanbul-instrumenter-loader": "^0.1.2",
     "jquery": "^2.1.1",
     "keymaster": "^1.6.2",
     "node-event-emitter": "0.0.1",
+    "react": "^0.13.1",
+    "react-bootstrap": "^0.17.0",
+    "swig": "^1.4.2",
     "underscore": "^1.7.0"
   },
   "devDependencies": {

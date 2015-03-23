@@ -111,7 +111,7 @@ gulp.task('sass', function () {
 
 gulp.task('dev-javascript', function (cb) {
 	gulp.watch(["src/**/*"], ["webpack"]);
-  gulp.watch(paths.sassSrc, ['sass']);
+    gulp.watch(paths.sassSrc, ['sass']);
     runSequence(['webpack', 'webpack-dev-server', 'unit-tests', 'sass'], cb);
 });
 

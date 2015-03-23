@@ -7,6 +7,7 @@ var toobusy = require('toobusy');
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
+var swig = require('swig');
 
 var app = express();
 
@@ -29,8 +30,8 @@ process.on('uncaughtException', function(err){
 
 //static and port
 app.enable('trust proxy', 1);
-app.set('port', process.env.PORT || 3010);
-app.set('view engine', 'ejs');
+app.engine('html', swig.renderFile);
+app.set('view engine', 'html');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -64,7 +65,6 @@ app.use(express.static(path.join(__dirname, '/../public')));
 
 //routes
 app.get('/login', index.login);
-app.get('/login2', index.login2);
 //status
 app.get('/', index.index);
 

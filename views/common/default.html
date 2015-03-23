@@ -1,0 +1,65 @@
+<!doctype html>
+<!--[if lt IE 8]>      <html class="ie lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="ie lt-ie10 lt-ie9"> <![endif]-->
+<!--[if IE 9]>         <html class="ie lt-ie10"> <![endif]-->
+<!--[if IE 10]>        <html class="ie"> <![endif]-->
+<!--[if !IE]>-->       <html> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block head %}
+
+        <title>
+            {% if title %}
+                {{ title }} | AtomApp
+            {% else %}
+                {% block title %}{% endblock %} | AtomApp
+            {% endif %}
+        </title>
+
+        {% block style_head %}
+            {# Include base SCSS stylesheets:  #}
+            <link rel="stylesheet" href="/compiled/css/app1.css">
+            {% block style_middle %}{% endblock style_middle %}
+        {% endblock style_head %}
+
+        {% block script_head %}
+        {% endblock script_head %}
+
+    {% endblock head %}
+
+</head>
+<body id="example" class='index pushable {{ show_navbar ? 'has-navbar' : ''}}'>
+
+{% block body_start %}
+{% endblock body_start %}
+
+{% block default_content %}
+
+<div class="pusher">
+    {% include 'topnav.html' %}
+      {% block content %}{% endblock content%}
+    </div>
+    <div id="push"></div>
+    {% include 'footer.html' %}
+</div>
+
+{% endblock default_content %}
+
+{% block script_foot %}
+
+    {# Add js variables from view_data:  #}
+    <script type='text/javascript'>
+        window.__SERVER_VARS__ = {};
+        window.__SERVER_VARS__.user = {{ JSON.stringify(user) }};
+    </script>
+    {% block script_foot_middle %}
+    {% endblock script_foot_middle %}
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+{% endblock script_foot %}
+
+</body>
+</html>

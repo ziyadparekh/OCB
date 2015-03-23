@@ -3,8 +3,14 @@
 var webpackConfig = require('./webpack.config.js');
 var karmaWebpack = require('karma-webpack');
 var karmaJasmine = require('karma-jasmine');
+var _ = require('underscore');
 
 module.exports = function(config) {
+  webpackConfig = _.clone(webpackConfig);
+  webpackConfig.cache = true; // force cache
+  webpackConfig.entry = undefined; // don't load the normal entry files
+  webpackConfig.plugins = undefined; // don't write buster.json or common chunks
+  webpackConfig.devtool = 'inline-source-map'; // use regular sourcemaps in tests
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)

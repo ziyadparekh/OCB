@@ -1,11 +1,19 @@
 'use strict';
 
-//The Globals
-var BaseConfig = require('configs/BaseButtonConfig');
-var BaseView = require('views/UIBaseButtonView');
-var BaseCard = require('views/UIBaseCardView');
-var baseView = new BaseView(BaseConfig);
-var baseCard = new BaseCard(BaseConfig);
-var $ = require('jquery');
-// var KeyMap = new keymap();
-$("#canvas").html(baseCard.render().el);
+var Backbone = require('lib/ZPBackbone');
+var Loader = require('lib/loader');
+var HomeRouter = require('routers/HomeRouter');
+var root = '/';
+var router;
+
+router = new HomeRouter({
+    //options go here...
+});
+
+Loader().onReady(function () {
+    Backbone.history.start({
+        root: root,
+        pushState: true
+    });
+});
+

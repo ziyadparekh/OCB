@@ -6,4 +6,6 @@ process.env.LOCAL = process.env.WEB;
 process.env.API_VERSION = process.env.API_VERSION || '1';
 
 var app = require('./express-app');
-app.listen(process.env.PORT || 3010);
+var port = process.env.PORT || 3010;
+app.listen(port);
+console.log("app is listening at " + port);
